@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:MiisFurttalApp.Helpers"
+             x:Class="MiisFurttalApp.Views.RoutesPage"
+             xmlns:viewmodels="clr-namespace:MiisFurttalApp.ViewModels"
+             xmlns:models="clr-namespace:MiisFurttalApp.Models"
+             BackgroundColor="{StaticResource Background}">
+
+    <ContentPage.BindingContext>
+        <viewmodels:RouteViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="CategoryIcon"
+                   TargetType="Label">
+                <Setter Property="FontFamily"
+                        Value="FASolid" />
+                <Setter Property="FontSize"
+                        Value="28" />
+                <Setter Property="HorizontalOptions"
+                        Value="Center" />
+                <Setter Property="TextColor"
+                        Value="{StaticResource TextSecondary}" />
+            </Style>
+            <Style x:Key="CategoryLabel"
+                   TargetType="Label">
+                <Setter Property="FontSize"
+                        Value="Small" />
+                <Setter Property="HorizontalOptions"
+                        Value="Center" />
+                <Setter Property="TextColor"
+                        Value="{StaticResource TextSecondary}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,*"
+              BackgroundColor="Transparent">
+            <Grid Padding="8,8,8,8"
+                  HorizontalOptions="FillAndExpand"
+                  BackgroundColor="{StaticResource ItemBackground}"
+                  ColumnDefinitions="*,*,*"
+                  RowDefinitions="Auto,Auto">
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       Style="{StaticResource CategoryIcon}"
+                       Text="{x:Static helpers:FAIcons.Bicycle}" />
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       Style="{StaticResource CategoryLabel}"
+                       Text="Velo" />
+                <Label Grid.Row="0"
+                       Grid.Column="1"
+                       Style="{StaticResource CategoryIcon}"
+                       Text="{x:Static helpers:FAIcons.Walking}" />
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Style="{StaticResource CategoryLabel}"
+                       Text="Laufen" />
+                <Label Grid.Row="0"
+                       Grid.Column="2"
+                       Style="{StaticResource CategoryIcon}"
+                       Text="{x:Static helpers:FAIcons.Hiking}" />
+                <Label Grid.Row="1"
+                       Grid.Column="2"
+                       Style="{StaticResource CategoryLabel}"
+                       Text="Wandern" />
+            </Grid>
+
+            <RefreshView Command="{Binding RefreshCommand}"
+                         IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                         Grid.Row="1">
+                <CollectionView ItemsSource="{Binding Activities}"
+                                ItemSizingStrategy="MeasureAllItems"
+                                ItemsLayout="VerticalList"
+                                SelectionMode="None"
+                                RemainingItemsThreshold="1"
+                                BackgroundColor="Transparent">
+                    
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="5">
+                                <Frame HasShadow="True"
+                                       CornerRadius="20"
+                                       BackgroundColor="AliceBlue">
+                                    <Grid RowDefinitions="*,Auto,Auto"
+                                          Padding="16,0,0,0"
+                                          x:DataType="models:Activity">
+                                        <Label Text="{Binding Name.De}"
+                                               FontSize="Large"
+                                               Grid.Row="0"
+                                               TextColor="Black" />
+                                        <Label Text="{Binding Level}"
+                                               Grid.Row="1"
+                                               TextColor="Black" />
+                                        <Label Text="{Binding Description.De}"
+                                               FontSize="Subtitle"
+                                               Grid.Row="2"
+                                               TextColor="Black" />
+                                    </Grid>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding NavToWebCommand, Source={RelativeSource AncestorType={x:Type viewmodels:RouteViewModel}}}"
+                                                              CommandParameter="{Binding .}" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                    <CollectionView.Header>
+                        <StackLayout>
+                            <Label Text="Verfügbare Strecken"
+                                   HorizontalOptions="Center"
+                                   TextDecorations="Underline"
+                                   FontSize="Large" />
+                        </StackLayout>
+                    </CollectionView.Header>
+
+
+                </CollectionView>
+            </RefreshView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

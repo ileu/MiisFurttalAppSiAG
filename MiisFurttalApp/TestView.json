@@ -1,0 +1,24 @@
+[
+  {
+    "Id": "826",
+    "Title": {
+      "DE": "«Tanz der Puppen» mit Tim Becker",
+      "EN": "«Tanz der Puppen» mit Tim Becker"
+    },
+    "Description": {
+      "DE": "Wo der Bauchredner Tim Becker mit seiner Puppen-WG auftritt, sind Lachanfälle vorprogrammiert. Event findet von 06.11.2021 um 20.00 bis 06.11.2021 um 23.00 statt.",
+      "EN": "Wo der Bauchredner Tim Becker mit seiner Puppen-WG auftritt, sind Lachanfälle vorprogrammiert. The Event starts from 06.11.2021 at 20:00 till 06.11.2021 at 23:59"
+    },
+    "Categories": {
+      "culture": {
+        "DE": "Kultur",
+        "EN": "Culture"
+      }
+    },
+    "Area": [ "Dänikon" ],
+    "Link": "https://www.daenikon.ch/aktuelles/veranstaltungen/detail.html/25/event/1492",
+    "DateFrom": "2021-11-06T20:00:00",
+    "DateTo": "2021-11-06T23:59:00",
+    "DateToPush": "2021-08-01 00:00:00"
+  }
+]

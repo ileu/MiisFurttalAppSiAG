@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiisFurttalApp.App">
+    <!--
+        Define global resources and styles here, that apply to all pages in your app.
+    -->
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#40AD46</Color>
+            <Color x:Key="Background">#D4D5DB</Color>
+            <Color x:Key="TabBarBackground">#40AD46</Color>
+            <Color x:Key="ItemBackground">AliceBlue</Color>
+            <Color x:Key="ButtonOutline">#5F6573</Color>
+
+            <Color x:Key="TextPrimary">#25272C</Color>
+            <Color x:Key="TextSecondary">#606572</Color>
+            <Color x:Key="Title">#00795B</Color>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiisFurttalApp.Views.ChallengePage"
+             BackgroundColor="{StaticResource Background}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Padding="0,16,0,0"
+                  RowDefinitions="*,Auto">
+                <CarouselView Loop="False"
+                              PeekAreaInsets="40"
+                              IndicatorView="indicatorView">
+                    <CarouselView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Item One</x:String>
+                            <x:String>Item Two</x:String>
+                            <x:String>Item Three</x:String>
+                        </x:Array>
+                    </CarouselView.ItemsSource>
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="8,0,0,0">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="CurrentItem">
+                                            <VisualState.Setters>
+                                                <Setter Property="Scale"
+                                                        Value="1" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="PreviousItem">
+                                            <VisualState.Setters>
+                                                <Setter Property="Scale"
+                                                        Value="0.9" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="NextItem">
+                                            <VisualState.Setters>
+                                                <Setter Property="Scale"
+                                                        Value="0.9" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                
+                                <Frame Padding="0"
+                                       CornerRadius="12"
+                                       HasShadow="True"
+                                       WidthRequest="125"
+                                       IsClippedToBounds="True">
+                                    <Frame.Background>
+                                        <LinearGradientBrush StartPoint="1,1"
+                                                             EndPoint="0,0">
+                                            <GradientStop Color="Lime"
+                                                          Offset="0" />
+                                            <GradientStop Color="Yellow"
+                                                          Offset="0"/>
+                                            <GradientStop Color="Red"
+                                                          Offset="0" />
+                                        </LinearGradientBrush>
+                                    </Frame.Background>
+                                    <Grid RowDefinitions="125,Auto"
+                                          VerticalOptions="StartAndExpand">
+                                        <Label Text="Challenge!"
+                                               FontSize="50"
+                                               HorizontalOptions="Center"
+                                               Padding="0,16"
+                                               FontAttributes="Bold"/>
+                                        <Label Text="Something really long 123 Something really long 123 Something really long 123 Something really long 123 Something really long 123"
+                                               Grid.Row="1"
+                                               Margin="8,0,0,0"
+                                               FontAttributes="Bold"
+                                               FontSize="Small" />
+                                    </Grid>
+                                </Frame>
+                            
+                                
+                            </Grid>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+                <IndicatorView x:Name="indicatorView"
+                               Margin="0,4,0,12"
+                               Grid.Row="1"
+                               IndicatorSize="8"
+                               IndicatorColor="#ADB4BD"
+                               SelectedIndicatorColor="#5D6578"/>
+                
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:MiisFurttalApp.Views"
+       xmlns:helpers="clr-namespace:MiisFurttalApp.Helpers"
+       Title="MiisFurttalApp"
+       x:Class="MiisFurttalApp.AppShell">
+
+    <!--
+        The overall app visual hierarchy is defined here, along with navigation.
+    
+        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
+    -->
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle"
+                   TargetType="Element">
+                <Setter Property="Shell.BackgroundColor"
+                        Value="{StaticResource Primary}" />
+                <Setter Property="Shell.ForegroundColor"
+                        Value="{StaticResource ItemBackground}" />
+                <Setter Property="Shell.TitleColor"
+                        Value="{StaticResource Title}" />
+                <Setter Property="Shell.DisabledColor"
+                        Value="#B4FFFFFF" />
+                <Setter Property="NavigationPage.BarBackgroundColor"
+                        Value="{StaticResource Primary}" />
+                <Setter Property="Shell.UnselectedColor"
+                        Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor"
+                        Value="{StaticResource Primary}" />
+                <Setter Property="Shell.TabBarForegroundColor"
+                        Value="White" />
+                <Setter Property="Shell.TabBarUnselectedColor"
+                        Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarTitleColor"
+                        Value="White" />
+            </Style>
+            <Style TargetType="TabBar"
+                   BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem"
+                   BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
+    
+    <TabBar Route="MainTabs">
+        <Tab Title="Entdecken"
+             Route="AboutPage"
+             Shell.NavBarIsVisible="False">
+            <Tab.Icon>
+                <FontImageSource FontFamily="FASolid"
+                                 Glyph="{x:Static helpers:FAIcons.Search}" />
+            </Tab.Icon>
+
+            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+        </Tab>
+
+        <Tab Title="Strecken"
+             Route="RoutesPage"
+             Shell.NavBarIsVisible="False">
+            <Tab.Icon>
+                <FontImageSource FontFamily="FASolid"
+                                 Glyph="{x:Static helpers:FAIcons.Route}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:RoutesPage}" />
+        </Tab>
+
+        <Tab Title="Challenge"
+             Route="ChallengePage"
+             Shell.NavBarIsVisible="False">
+            <Tab.Icon>
+                <FontImageSource FontFamily="FASolid"
+                                 Glyph="{x:Static helpers:FAIcons.Bolt}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:ChallengePage}" />
+        </Tab>
+
+        <Tab Title="Stopuhr"
+             Route="StopWatchPage"
+             Shell.NavBarIsVisible="False">
+            <Tab.Icon>
+                <FontImageSource FontFamily="FASolid"
+                                 Glyph="{x:Static helpers:FAIcons.Stopwatch}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:LoginPage}" />
+        </Tab>
+        <Tab Title="Tracker"
+             Route="TrackerPage"
+             Shell.NavBarIsVisible="False">
+            <Tab.Icon>
+                <FontImageSource FontFamily="FASolid"
+                                 Glyph="{x:Static helpers:FAIcons.Map}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:TrackerPage}" />
+        </Tab>
+
+    </TabBar>
+</Shell>
